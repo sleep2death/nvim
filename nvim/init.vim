@@ -16,6 +16,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
+
+  Plug 'moll/vim-bbye'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -292,8 +295,9 @@ endif
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+" Quickly close
+nnoremap <Leader>q :Bdelete<CR>
+nnoremap <Leader>ba :bufdo :Bdelete<CR>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
